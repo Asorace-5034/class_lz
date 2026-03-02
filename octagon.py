@@ -22,22 +22,21 @@ class Octago:
         area =  3.14 * radius_vp ** 2
         return radius_vp, area
     def draw(self):
-        "Метод отрисовки октогона и окружностей"
         fig, ax = plt.subplots(figsize=(10, 10))
         ax.set_aspect('equal')
 
-        r_out, _ = self.opis_octa()
-        r_in, _ = self.vpis_octa()
+        r_opis, _ = self.opis_octa()
+        r_vpis, _ = self.vpis_octa()
         
-        x = [r_out * np.cos(i * np.pi / 4) for i in range(8)]
-        y = [r_out * np.sin(i * np.pi / 4) for i in range(8)]
+        x = [r_opis * np.cos(i * np.pi / 4) for i in range(8)]
+        y = [r_opis * np.sin(i * np.pi / 4) for i in range(8)]
         
         ax.fill(x, y, color='black')
 
-        circle_out = plt.Circle((0, 0), r_out, color="blue", fill=False)
+        circle_out = plt.Circle((0, 0), r_opis, color="blue", fill=False)
         ax.add_patch(circle_out)
 
-        circle_in = plt.Circle((0, 0), r_in, color="red", fill=False)
+        circle_in = plt.Circle((0, 0), r_vpis, color="red", fill=False)
         ax.add_patch(circle_in)
 
         plt.grid()
